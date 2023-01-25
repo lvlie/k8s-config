@@ -38,18 +38,18 @@ spec:
           env:
             {{- range $env := .Values.container.env }}
             - name: {{ $env.name }}
-              value: {{ $env.value }}
+              value: {{ $env.value | quote }}
             {{- end }}
           ports:
             {{- range $port := .Values.container.ports }}
             - name: {{ $port.name }}
-              containerPort: {{ $port.port }}
+              containerPort: {{ $port.port | quote }}
               protocol: {{ $port.protocol | default "TCP" }}
             {{- end }}
           resources:
             limits:
-              cpu: {{ .Values.container.resourceLimit.cpu }}
-              memory: {{ .Values.container.resourceLimit.memory }}
+              cpu: {{ .Values.container.resourceLimit.cpu | quote }}
+              memory: {{ .Values.container.resourceLimit.memory | quote }}
           volumeMounts:
             {{- range $volume := .Values.volumes }}
             - name: {{ $volume.name }}
