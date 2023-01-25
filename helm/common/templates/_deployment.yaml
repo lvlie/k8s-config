@@ -36,8 +36,10 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 10
           env:
-            - name: TZ
-              value: "Europe/Amsterdam"
+            {{- range $env := .Values.container.env }}
+            - name: {{ $env.name }}
+              value: {{ $env.value }}
+            {{- end }}
           ports:
             {{- range $port := .Values.container.ports }}
             - name: {{ $port.name }}

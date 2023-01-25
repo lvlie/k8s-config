@@ -1,0 +1,32 @@
+name: sabnzbd
+ip: 192.168.6.120
+
+container:
+  image: linuxserver/sabnzbd
+  ports:
+    - name: http
+      port: 8080
+  env:
+    - name: TZ
+      value: "Europe/Amsterdam"
+    - name: UMASK
+      value: "0027"
+
+  readinessPort: 8080
+  resourceLimit:
+    cpu: "1000m"
+    memory: "4096Mi"
+
+volumes:
+  - name: sabnzbd-config
+    mount: /config
+    source: /config/sabnzbd
+  - name: sabnzbd-data
+    mount: /data
+    source: /data
+  - name: sabnzbd-incomplete
+    mount: /incomplete-downloads
+    source: /scratch/incomplete
+  - name: sabnzbd-complete
+    mount: /downloads
+    source: /scratch/complete
