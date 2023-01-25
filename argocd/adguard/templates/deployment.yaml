@@ -2,24 +2,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: adguard
-  namespace: adguard
+  name: {{ .Values.name }}
+  namespace: {{ .Values.name }}
   labels:
-    name: adguard
-    app.kubernetes.io/component: adguard-app
-    app.kubernetes.io/name: adguard
-    app.kubernetes.io/part-of: adguard
+    name: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}-app
+    app.kubernetes.io/name: {{ .Values.name }}
+    app.kubernetes.io/part-of: {{ .Values.name }}
     app.kubernetes.io/managed-by: argo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: adguard
+      name: {{ .Values.name }}
   template:
     metadata:
       labels:
-        name: adguard
-        app: adguard
+        name: {{ .Values.name }}
+        app: {{ .Values.name }}
     spec:
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
@@ -29,29 +29,22 @@ spec:
           imagePullPolicy: Always
           readinessProbe:
             tcpSocket:
-              port: {{ .Values.container.port.http }}
+              port: {{ .Values.container.readinessPort }}
             initialDelaySeconds: 5
             periodSeconds: 10
           env:
             - name: TZ
               value: "Europe/Amsterdam"
           ports:
-            - name: adguard-http
-              containerPort: {{ .Values.container.port.http }}
-              protocol: TCP
-            - name: adguard-dns-tcp
-              containerPort: {{ .Values.container.port.dns }}
-              protocol: TCP
-            - name: adguard-dns-udp
-              containerPort: {{ .Values.container.port.dns }}
-              protocol: UDP
+            {{- range $port := .Values.container.ports }}
+            - name: {{ $port.name }}
+              containerPort: {{ $port.port }}
+              protocol: {{ $port.protocol | default "tcp" }}
+            {{- end }}
           resources:
             limits:
-              cpu: "100m"
-              memory: "128Mi"
-            requests:
-              cpu: 10m
-              memory: "32Mi"
+              cpu: "250m"
+              memory: "256Mi"
           volumeMounts:
             {{- range $volume := .Values.volumes }}
             - name: {{ $volume.name }}

@@ -2,13 +2,13 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: adguard-vol-config
-  namespace: adguard
+  name: {{ .Values.name }}-vol-config
+  namespace: {{ .Values.name }}
   labels:
-    name: adguard-vol-config
-    app.kubernetes.io/component: adguard-vol-config
-    app.kubernetes.io/name: adguard
-    app.kubernetes.io/part-of: adguard
+    name: {{ .Values.name }}-vol-config
+    app.kubernetes.io/component: {{ .Values.name }}-vol-config
+    app.kubernetes.io/name: {{ .Values.name }}
+    app.kubernetes.io/part-of: {{ .Values.name }}
     app.kubernetes.io/managed-by: argo
 spec:
   accessModes:
@@ -17,18 +17,18 @@ spec:
   resources:
     requests:
       storage: 1Mi
-  volumeName: adguard-vol-config
+  volumeName: {{ .Values.name }}-vol-config
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: adguard-vol-work
-  namespace: adguard
+  name: {{ .Values.name }}-vol-work
+  namespace: {{ .Values.name }}
   labels:
-    name: adguard-vol-work
-    app.kubernetes.io/component: adguard-vol-work
-    app.kubernetes.io/name: adguard
-    app.kubernetes.io/part-of: adguard
+    name: {{ .Values.name }}-vol-work
+    app.kubernetes.io/component: {{ .Values.name }}-vol-work
+    app.kubernetes.io/name: {{ .Values.name }}
+    app.kubernetes.io/part-of: {{ .Values.name }}
     app.kubernetes.io/managed-by: argo
 spec:
   accessModes:
@@ -37,4 +37,4 @@ spec:
   resources:
     requests:
       storage: 1Mi
-  volumeName: adguard-vol-work
+  volumeName: {{ .Values.name }}-vol-work

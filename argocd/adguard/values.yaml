@@ -1,8 +1,17 @@
+name: adguard
+ip: 192.168.6.102
+
 container:
   image: adguard/adguardhome
-  port:
-    http: 80
-    dns: 53
+  ports:
+    - name: adguard-http
+      port: 80
+    - name: adguard-dns-tcp
+      port: 53
+    - name: adguard-dns-udp
+      port: 53
+      protocol: udp
+  readinessPort: 80
 
 volumes:
   - name: adguard-vol-config
