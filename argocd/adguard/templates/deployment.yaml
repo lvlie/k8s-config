@@ -16,7 +16,7 @@ spec:
     matchLabels:
       name: {{ .Values.name }}
   strategy:
-    type: {{ .Values.strategy | default ReCreate }}
+    type: {{ .Values.strategy | default "ReCreate" }}
   template:
     metadata:
       labels:
