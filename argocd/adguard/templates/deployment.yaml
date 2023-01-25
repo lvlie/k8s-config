@@ -1,0 +1,62 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adguard
+  namespace: adguard
+  labels:
+    name: adguard
+    app.kubernetes.io/component: adguard-app
+    app.kubernetes.io/name: adguard
+    app.kubernetes.io/part-of: adguard
+    app.kubernetes.io/managed-by: argo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: adguard
+  template:
+    metadata:
+      labels:
+        name: adguard
+        app: adguard
+    spec:
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.container.image }}:{{ .Values.container.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: Always
+          readinessProbe:
+            tcpSocket:
+              port: {{ .Values.container.port.http }}
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          env:
+            - name: TZ
+              value: "Europe/Amsterdam"
+          ports:
+            - name: adguard-http
+              containerPort: {{ .Values.container.port.http }}
+              protocol: TCP
+            - name: adguard-dns
+              containerPort: {{ .Values.container.port.dns }}
+              protocol: TCP
+          resources:
+            limits:
+              cpu: "100m"
+              memory: "128Mi"
+            requests:
+              cpu: 10m
+              memory: "32Mi"
+          volumeMounts:
+            {{- range $volume := .Values.volumes }}
+            - name: {{ $volume.name }}
+              mountPath: {{ $volume.mount }}
+            {{- end }}
+      volumes:
+        {{- range $volume := .Values.volumes }}
+        - name: {{ .$volume.name }}
+          persistentVolumeClaim:
+            claimName: {{ $volume.name }}
+        {{- end }}

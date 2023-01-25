@@ -1,0 +1,44 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: adguard-vol-config
+  namespace: adguard
+  labels:
+    name: adguard-vol-config
+    app.kubernetes.io/component: adguard-vol-config
+    app.kubernetes.io/name: adguard
+    app.kubernetes.io/part-of: adguard
+    app.kubernetes.io/managed-by: argo
+spec:
+  capacity:
+    storage: 1Mi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 192.168.2.100
+    path: "/config/adguard/conf"
+  mountOptions:
+    - nfsvers=4.2
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: adguard-vol-work
+  namespace: adguard
+  labels:
+    name: adguard-vol-work
+    app.kubernetes.io/component: adguard-vol-work
+    app.kubernetes.io/name: adguard
+    app.kubernetes.io/part-of: adguard
+    app.kubernetes.io/managed-by: argo
+spec:
+  capacity:
+    storage: 1Mi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 192.168.2.100
+    path: "/config/adguard/work"
+  mountOptions:
+    - nfsvers=4.2

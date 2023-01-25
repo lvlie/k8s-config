@@ -20,17 +20,17 @@ spec:
         app: cloudflared
     spec:
       containers:
-      - name: cloudflared
-        image: cloudflare/cloudflared:latest
-        args:
-        - tunnel
-        - run
-        env:
-          - name: TUNNEL_TOKEN
-            valueFrom:
-              secretKeyRef:
-                name: tunnel-token
-                key: tunnel-token
-                optional: false
-          - name: TZ
-            value: "Europe/Amsterdam"
+        - name: cloudflared
+          image: cloudflare/cloudflared:latest
+          args:
+            - tunnel
+            - run
+          env:
+            - name: TUNNEL_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: tunnel-token
+                  key: tunnel-token
+                  optional: false
+            - name: TZ
+              value: "Europe/Amsterdam"

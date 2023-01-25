@@ -1,0 +1,11 @@
+container:
+  image: adguard/adguardhome
+  port:
+    http: 80
+    dns: 53
+
+volumes:
+  - name: adguard-vol-config
+    mount: /opt/adguardhome/conf
+  - name: adguard-vol-work
+    mount: /opt/adguardhome/work
