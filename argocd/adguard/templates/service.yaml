@@ -20,7 +20,11 @@ spec:
       protocol: TCP
       port: {{ .Values.container.port.http }}
       targetPort: {{ .Values.container.port.http }}
-    - name: dns
+    - name: dns-tcp
       protocol: TCP
+      port: {{ .Values.container.port.dns }}
+      targetPort: {{ .Values.container.port.dns }}
+    - name: dns-udp
+      protocol: UDP
       port: {{ .Values.container.port.dns }}
       targetPort: {{ .Values.container.port.dns }}
