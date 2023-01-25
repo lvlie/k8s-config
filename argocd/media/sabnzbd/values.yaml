@@ -1,4 +1,5 @@
 name: sabnzbd
+namespace: media
 ip: 192.168.6.120
 
 container:
