@@ -43,7 +43,7 @@ spec:
           ports:
             {{- range $port := .Values.container.ports }}
             - name: {{ $port.name }}
-              containerPort: {{ $port.port | quote }}
+              containerPort: {{ $port.port }}
               protocol: {{ $port.protocol | default "TCP" }}
             {{- end }}
           resources:
