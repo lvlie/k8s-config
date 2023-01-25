@@ -6,7 +6,7 @@ metadata:
   namespace: adguard
   labels:
     name: adguard
-    app.kubernetes.io/component: adguard-app
+    app.kubernetes.io/component: adguard-svc
     app.kubernetes.io/name: adguard
     app.kubernetes.io/part-of: adguard
     app.kubernetes.io/managed-by: argo
