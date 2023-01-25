@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: 3.6.11
+appVersion: v0.107.22
 description: Helm chart for Adguard
 name: adguard
 type: application
