@@ -12,6 +12,10 @@ container:
       value: "Europe/Amsterdam"
     - name: UMASK
       value: "0027"
+    - name: PUID
+      value: "1000"
+    - name: PGID
+      value: "1000"
   readinessPort: 8080
   resourceLimit:
     cpu: "1000m"
