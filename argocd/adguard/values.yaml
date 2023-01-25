@@ -10,7 +10,7 @@ container:
       port: 53
     - name: adguard-dns-udp
       port: 53
-      protocol: udp
+      protocol: UDP
   readinessPort: 80
 
 volumes:
