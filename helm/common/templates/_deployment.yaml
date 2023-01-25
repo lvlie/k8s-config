@@ -1,3 +1,4 @@
+{{- define "common.deployment" -}}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -58,3 +59,4 @@ spec:
           persistentVolumeClaim:
             claimName: {{ $volume.name }}
         {{- end }}
+{{- end -}}

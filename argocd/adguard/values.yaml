@@ -19,5 +19,7 @@ container:
 volumes:
   - name: adguard-vol-config
     mount: /opt/adguardhome/conf
+    source: /config/adguard/conf
   - name: adguard-vol-work
     mount: /opt/adguardhome/work
+    source: /config/adguard/work

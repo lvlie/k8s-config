@@ -1,0 +1,26 @@
+{{- define "common.pv" -}}
+{{- range $volume := .Values.volumes }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ $volume.name }}
+  namespace: {{ $.Values.name }}
+  labels:
+    name: {{ $volume.name }}
+    app.kubernetes.io/component: {{ $volume.name }}
+    app.kubernetes.io/name: {{ $.Values.name }}
+    app.kubernetes.io/part-of: {{ $.Values.name }}
+    app.kubernetes.io/managed-by: argo
+spec:
+  capacity:
+    storage: 1Mi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 192.168.2.100
+    path: {{ $volume.source }}
+  mountOptions:
+    - nfsvers=4.2
+{{- end -}}
+{{- end -}}

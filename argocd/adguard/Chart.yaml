@@ -4,3 +4,7 @@ description: Helm chart for Adguard
 name: adguard
 type: application
 version: 0.0.1
+dependencies:
+  - name: common
+    version: 0.0.1
+    repository: file://../../helm/common
