@@ -56,7 +56,7 @@ spec:
             {{- end }}
       volumes:
         {{- range $volume := .Values.volumes }}
-        - name: {{ .$volume.name }}
+        - name: {{ $volume.name }}
           persistentVolumeClaim:
             claimName: {{ $volume.name }}
         {{- end }}
