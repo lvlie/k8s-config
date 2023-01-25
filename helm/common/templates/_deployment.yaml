@@ -24,6 +24,9 @@ spec:
         name: {{ .Values.name }}
         app: {{ .Values.name }}
     spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       containers:
