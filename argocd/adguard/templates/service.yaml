@@ -16,15 +16,15 @@ spec:
   type: LoadBalancer
   loadBalancerIP: 192.168.6.102
   ports:
-    - name: http
+    - name: adguard-http
       protocol: TCP
       port: {{ .Values.container.port.http }}
       targetPort: {{ .Values.container.port.http }}
-    - name: dns-tcp
+    - name: adguard-dns-tcp
       protocol: TCP
       port: {{ .Values.container.port.dns }}
       targetPort: {{ .Values.container.port.dns }}
-    - name: dns-udp
+    - name: adguard-dns-udp
       protocol: UDP
       port: {{ .Values.container.port.dns }}
       targetPort: {{ .Values.container.port.dns }}

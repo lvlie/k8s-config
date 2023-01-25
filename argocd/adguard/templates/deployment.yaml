@@ -39,9 +39,12 @@ spec:
             - name: adguard-http
               containerPort: {{ .Values.container.port.http }}
               protocol: TCP
-            - name: adguard-dns
+            - name: adguard-dns-tcp
               containerPort: {{ .Values.container.port.dns }}
               protocol: TCP
+            - name: adguard-dns-udp
+              containerPort: {{ .Values.container.port.dns }}
+              protocol: UDP
           resources:
             limits:
               cpu: "100m"
