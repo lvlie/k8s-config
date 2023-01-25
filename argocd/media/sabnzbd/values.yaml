@@ -12,7 +12,6 @@ container:
       value: "Europe/Amsterdam"
     - name: UMASK
       value: "0027"
-
   readinessPort: 8080
   resourceLimit:
     cpu: "1000m"

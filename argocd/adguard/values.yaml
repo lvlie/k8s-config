@@ -11,6 +11,9 @@ container:
     - name: adguard-dns-udp
       port: 53
       protocol: UDP
+  env:
+    - name: TZ
+      value: "Europe/Amsterdam"
   readinessPort: 80
   resourceLimit:
     cpu: "250m"
