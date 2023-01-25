@@ -15,6 +15,8 @@ spec:
   selector:
     matchLabels:
       name: {{ .Values.name }}
+  strategy:
+    type: {{ .Values.strategy | default ReCreate }}
   template:
     metadata:
       labels:
@@ -43,8 +45,8 @@ spec:
             {{- end }}
           resources:
             limits:
-              cpu: "250m"
-              memory: "256Mi"
+              cpu: {{ .Values.resourceLimit.cpu }}
+              memory: {{ .Values.resourceLimit.memory }}
           volumeMounts:
             {{- range $volume := .Values.volumes }}
             - name: {{ $volume.name }}
