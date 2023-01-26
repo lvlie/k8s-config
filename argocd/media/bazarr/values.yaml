@@ -1,0 +1,29 @@
+name: bazarr
+namespace: media
+ip: 192.168.6.124
+
+container:
+  image: linuxserver/bazarr
+  ports:
+    - name: http
+      port: 6767
+  env:
+    - name: TZ
+      value: "Europe/Amsterdam"
+    - name: UMASK
+      value: "0022"
+  readinessPort: 6767
+  resourceLimit:
+    cpu: "250m"
+    memory: "2048Mi"
+
+volumes:
+  - name: bazarr-config
+    mount: /config
+    source: /config/bazarr
+  - name: bazarr-tv
+    mount: /tv
+    source: /data/TV
+  - name: bazarr-movies
+    mount: /movies
+    source: /data/Movies
