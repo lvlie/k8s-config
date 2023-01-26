@@ -15,7 +15,7 @@ container:
   readinessPort: 6767
   resourceLimit:
     cpu: "250m"
-    memory: "2048Mi"
+    memory: "1024Mi"
 
 volumes:
   - name: bazarr-config

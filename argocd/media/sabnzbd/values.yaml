@@ -15,7 +15,7 @@ container:
   readinessPort: 8080
   resourceLimit:
     cpu: "1000m"
-    memory: "4096Mi"
+    memory: "2048Mi"
 
 volumes:
   - name: sabnzbd-config
