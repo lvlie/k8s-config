@@ -1,0 +1,24 @@
+name: tautulli
+namespace: media
+ip: 192.168.6.125
+
+container:
+  image: linuxserver/tautulli
+  ports:
+    - name: http
+      port: 8181
+  env:
+    - name: TZ
+      value: "Europe/Amsterdam"
+  readinessPort: 8181
+  resourceLimit:
+    cpu: "250m"
+    memory: "1024Mi"
+
+volumes:
+  - name: tautulli-config
+    mount: /config
+    source: /config/plexpy
+  - name: plex-logs
+    mount: /logs
+    source: /config/plex/Library/Logs/

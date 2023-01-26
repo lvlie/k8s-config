@@ -1,0 +1,10 @@
+apiVersion: v2
+appVersion: 2.11.1
+description: Helm chart for Tautulli
+name: tautulli
+type: application
+version: 0.0.1
+dependencies:
+  - name: common
+    version: 0.0.1
+    repository: file://../../../helm/common
