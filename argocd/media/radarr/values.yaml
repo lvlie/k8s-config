@@ -1,6 +1,6 @@
 name: radarr
 namespace: media
-ip: 192.168.6.121
+ip: 192.168.6.122
 
 container:
   image: lscr.io/linuxserver/radarr
