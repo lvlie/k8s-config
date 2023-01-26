@@ -3,7 +3,7 @@ namespace: media
 ip: 192.168.6.130
 
 container:
-  image: linuxserver/plex
+  image: plexinc/pms-docker
   ports:
     - name: http
       port: 32400
@@ -22,8 +22,8 @@ container:
   env:
     - name: TZ
       value: "Europe/Amsterdam"
-    - name: UMASK
-      value: "0027"
+    - name: CHANGE_CONFIG_DIR_OWNERSHIP
+      value: "false"
   readinessPort: 32400
   resourceLimit:
     cpu: "4000m"
