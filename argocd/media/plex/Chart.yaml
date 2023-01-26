@@ -1,0 +1,10 @@
+apiVersion: v2
+appVersion: 1.30.2
+description: Helm chart for Plex
+name: plex
+type: application
+version: 0.0.1
+dependencies:
+  - name: common
+    version: 0.0.1
+    repository: file://../../../helm/common

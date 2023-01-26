@@ -1,0 +1,38 @@
+name: plex
+namespace: media
+ip: 192.168.6.130
+
+container:
+  image: linuxserver/plex
+  ports:
+    - name: http
+      port: 32400
+    - name: gdm1
+      port: 32410
+      protocol: UDP
+    - name: gdm2
+      port: 32412
+      protocol: UDP
+    - name: gdm3
+      port: 32413
+      protocol: UDP
+    - name: gdm4
+      port: 32414
+      protocol: UDP
+  env:
+    - name: TZ
+      value: "Europe/Amsterdam"
+    - name: UMASK
+      value: "0027"
+  readinessPort: 32400
+  resourceLimit:
+    cpu: "4000m"
+    memory: "8192Mi"
+
+volumes:
+  - name: plex-config
+    mount: /config
+    source: /config/plex
+  - name: plex-data
+    mount: /data
+    source: /data
