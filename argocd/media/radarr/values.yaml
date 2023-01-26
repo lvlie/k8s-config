@@ -1,0 +1,29 @@
+name: radarr
+namespace: media
+ip: 192.168.6.121
+
+container:
+  image: lscr.io/linuxserver/radarr
+  ports:
+    - name: http
+      port: 7878
+  env:
+    - name: TZ
+      value: "Europe/Amsterdam"
+    - name: UMASK
+      value: "0022"
+  readinessPort: 7878
+  resourceLimit:
+    cpu: "500m"
+    memory: "2048"
+
+volumes:
+  - name: radarr-config
+    mount: /config
+    source: /config/radarr
+  - name: radarr-data
+    mount: /movies
+    source: /data/Movies
+  - name: radarr-complete
+    mount: /downloads
+    source: /scratch/complete

@@ -3,7 +3,7 @@ namespace: media
 ip: 192.168.6.120
 
 container:
-  image: linuxserver/sabnzbd
+  image: lscr.io/linuxserver/sabnzbd
   ports:
     - name: http
       port: 8080

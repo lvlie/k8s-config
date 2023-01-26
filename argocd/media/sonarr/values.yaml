@@ -1,0 +1,29 @@
+name: sonarr
+namespace: media
+ip: 192.168.6.121
+
+container:
+  image: lscr.io/linuxserver/sonarr
+  ports:
+    - name: http
+      port: 8989
+  env:
+    - name: TZ
+      value: "Europe/Amsterdam"
+    - name: UMASK
+      value: "0022"
+  readinessPort: 8989
+  resourceLimit:
+    cpu: "500m"
+    memory: "2048"
+
+volumes:
+  - name: sonarr-config
+    mount: /config
+    source: /config/sonarr
+  - name: sonarr-data
+    mount: /tv
+    source: /data/TV
+  - name: sonarr-complete
+    mount: /downloads
+    source: /scratch/complete
