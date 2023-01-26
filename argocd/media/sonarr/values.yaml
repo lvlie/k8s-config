@@ -3,7 +3,7 @@ namespace: media
 ip: 192.168.6.121
 
 container:
-  image: lscr.io/linuxserver/sonarr
+  image: linuxserver/sonarr
   ports:
     - name: http
       port: 8989

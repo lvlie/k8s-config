@@ -3,7 +3,7 @@ namespace: media
 ip: 192.168.6.122
 
 container:
-  image: lscr.io/linuxserver/radarr
+  image: linuxserver/radarr
   ports:
     - name: http
       port: 7878
