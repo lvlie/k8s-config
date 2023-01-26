@@ -1,5 +1,5 @@
 name: sonarr
-namespace: sonarr
+namespace: media
 ip: 192.168.6.121
 
 container:
