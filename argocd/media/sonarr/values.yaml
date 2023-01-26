@@ -15,7 +15,7 @@ container:
   readinessPort: 8989
   resourceLimit:
     cpu: "500m"
-    memory: "2048"
+    memory: "2048Mi"
 
 volumes:
   - name: sonarr-config
