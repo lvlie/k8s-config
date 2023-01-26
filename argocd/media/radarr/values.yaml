@@ -1,5 +1,5 @@
 name: radarr
-namespace: media
+namespace: radarr
 ip: 192.168.6.122
 
 container:
