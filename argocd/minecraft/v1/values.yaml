@@ -5,11 +5,11 @@ ip: 192.168.6.141
 container:
   image: 05jchambers/legendary-minecraft-geyser-floodgate
   ports:
-    - name: minecraft-v1-java
+    - name: mc-v1-java
       port: 25565
-    - name: minecraft-v1-bedrock-v4
+    - name: mcv1-bedrock-v4
       port: 19132
-    - name: minecraft-v1-bedrock-v6
+    - name: mcv1-bedrock-v6
       port: 19133
   env:
     - name: TZ
