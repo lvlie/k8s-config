@@ -1,0 +1,28 @@
+name: minecraft
+ip: 192.168.6.140
+
+container:
+  image: 05jchambers/legendary-minecraft-geyser-floodgate
+  ports:
+    - name: minecraft-java
+      port: 25565
+    - name: minecraft-bedrock-v4
+      port: 19132
+    - name: minecraft-bedrock-v6
+      port: 19133
+  env:
+    - name: TZ
+      value: "Europe/Amsterdam"
+    - name: MaxMemory
+      value: '1024'
+    - name: k8s
+      value: "True"
+  readinessPort: 25565
+  resourceLimit:
+    cpu: "1000m"
+    memory: "1023Mi"
+
+volumes:
+  - name: minecraft-data
+    mount: /minecraft
+    source: /config/minecraft
