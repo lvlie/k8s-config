@@ -15,6 +15,7 @@ spec:
   selector:
     name: {{ .Values.name }}
   type: LoadBalancer
+  externalTrafficPolicy: Local
   loadBalancerIP: {{ .Values.ip }}
   ports:
     {{- range $port := .Values.container.ports }}
