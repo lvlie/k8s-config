@@ -1,0 +1,34 @@
+name: minecraft-creative
+namespace: minecraft
+ip: 192.168.6.161
+
+container:
+  image: itzg/minecraft-bedrock-server
+  ports:
+    - name: minecraft
+      port: 19132
+      protocol: UDP
+  env:
+    - name: TZ
+      value: "Europe/Amsterdam"
+    - name:  EULA
+      value: 'TRUE'
+    - name: MODE
+      value: creative
+    - name: MOTD
+      value: "Welkom in Vliegjes creative!"
+    - name: ALLOW_FLIGHT
+      value: 'TRUE'
+  readinessCommand:
+    - mc-monitor
+    - status-bedrock
+    - --host
+    - 127.0.0.1
+  resourceRequest:
+    cpu: "100m"
+    memory: "512Mi"
+
+volumes:
+  - name: minecraft-creative
+    mount: /data
+    source: /config/minecraft/creative

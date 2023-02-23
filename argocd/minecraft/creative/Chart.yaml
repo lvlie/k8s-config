@@ -1,7 +1,7 @@
 apiVersion: v2
 appVersion: latest
-description: Helm chart for Minecraft
-name: minecraft-v1
+description: Helm chart for Minecraft Creative
+name: minecraft-creative
 type: application
 version: 0.0.1
 dependencies:
