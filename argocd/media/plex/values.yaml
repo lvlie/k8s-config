@@ -25,7 +25,7 @@ container:
     - name: CHANGE_CONFIG_DIR_OWNERSHIP
       value: "false"
   readinessPort: 32400
-  resourceLimit:
+  resourceRequest:
     cpu: "500m"
     memory: "1024Mi"
 

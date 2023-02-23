@@ -19,7 +19,7 @@ container:
     - name: k8s
       value: "True"
   readinessPort: 25565
-  resourceLimit:
+  resourceRequest:
     cpu: "100m"
     memory: "512Mi"
 

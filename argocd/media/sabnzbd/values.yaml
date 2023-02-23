@@ -13,7 +13,7 @@ container:
     - name: UMASK
       value: "0027"
   readinessPort: 8080
-  resourceLimit:
+  resourceRequest:
     cpu: "250m"
     memory: "512Mi"
 

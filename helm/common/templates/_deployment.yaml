@@ -48,8 +48,8 @@ spec:
             {{- end }}
           resources:
             requests:
-              cpu: {{ .Values.container.resourceLimit.cpu | quote }}
-              memory: {{ .Values.container.resourceLimit.memory | quote }}
+              cpu: {{ .Values.container.resourceRequest.cpu | quote }}
+              memory: {{ .Values.container.resourceRequest.memory | quote }}
           volumeMounts:
             {{- range $volume := .Values.volumes }}
             - name: {{ $volume.name }}

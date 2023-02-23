@@ -11,7 +11,7 @@ container:
     - name: TZ
       value: "Europe/Amsterdam"
   readinessPort: 8181
-  resourceLimit:
+  resourceRequest:
     cpu: "100m"
     memory: "256Mi"
 
