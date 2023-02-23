@@ -16,8 +16,8 @@ container:
       value: "Europe/Amsterdam"
   readinessPort: 80
   resourceLimit:
-    cpu: "250m"
-    memory: "512Mi"
+    cpu: "100m"
+    memory: "256Mi"
 
 volumes:
   - name: adguard-vol-config

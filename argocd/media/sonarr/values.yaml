@@ -14,8 +14,8 @@ container:
       value: "0022"
   readinessPort: 8989
   resourceLimit:
-    cpu: "250m"
-    memory: "512Mi"
+    cpu: "100m"
+    memory: "256Mi"
 
 volumes:
   - name: sonarr-config

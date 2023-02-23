@@ -20,8 +20,8 @@ container:
       value: "True"
   readinessPort: 25565
   resourceLimit:
-    cpu: "1000m"
-    memory: "1024Mi"
+    cpu: "100m"
+    memory: "512Mi"
 
 volumes:
   - name: minecraft-v1-data

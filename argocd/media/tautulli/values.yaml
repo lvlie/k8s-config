@@ -12,8 +12,8 @@ container:
       value: "Europe/Amsterdam"
   readinessPort: 8181
   resourceLimit:
-    cpu: "250m"
-    memory: "512Mi"
+    cpu: "100m"
+    memory: "256Mi"
 
 volumes:
   - name: tautulli-config

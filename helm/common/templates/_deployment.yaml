@@ -47,7 +47,7 @@ spec:
               protocol: {{ $port.protocol | default "TCP" }}
             {{- end }}
           resources:
-            limits:
+            requests:
               cpu: {{ .Values.container.resourceLimit.cpu | quote }}
               memory: {{ .Values.container.resourceLimit.memory | quote }}
           volumeMounts:

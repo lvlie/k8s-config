@@ -14,8 +14,8 @@ container:
       value: "0022"
   readinessPort: 7878
   resourceLimit:
-    cpu: "250m"
-    memory: "512Mi"
+    cpu: "100m"
+    memory: "256Mi"
 
 volumes:
   - name: radarr-config

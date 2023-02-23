@@ -26,8 +26,8 @@ container:
       value: "false"
   readinessPort: 32400
   resourceLimit:
-    cpu: "3000m"
-    memory: "4096Mi"
+    cpu: "500m"
+    memory: "1024Mi"
 
 volumes:
   - name: plex-config
