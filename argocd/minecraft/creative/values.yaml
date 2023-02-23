@@ -12,13 +12,13 @@ container:
     - name: TZ
       value: "Europe/Amsterdam"
     - name:  EULA
-      value: 'TRUE'
-    - name: MODE
-      value: creative
-    - name: MOTD
-      value: "Welkom in Vliegjes creative!"
-    - name: ALLOW_FLIGHT
-      value: 'TRUE'
+      value: "TRUE"
+    - name: GAMEMODE
+      value: "creative"
+    - name: SERVER_NAME
+      value: "Fly creative"
+    - name: LEVEL_NAME
+      value: "Fly creative"
   readinessCommand:
     - mc-monitor
     - status-bedrock

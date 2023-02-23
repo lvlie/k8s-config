@@ -12,15 +12,13 @@ container:
     - name: TZ
       value: "Europe/Amsterdam"
     - name:  EULA
-      value: 'TRUE'
-    - name: MODE
-      value: survival
-    - name: MOTD
-      value: "Welkom in Vliegjes survival!"
-    - name: ALLOW_FLIGHT
-      value: 'TRUE'
-    - name: DIFFICULTY
-      value: 'normal'
+      value: "TRUE"
+    - name: GAMEMODE
+      value: "survival"
+    - name: SERVER_NAME
+      value: "Fly survival"
+    - name: LEVEL_NAME
+      value: "Fly survival"
   readinessCommand:
     - mc-monitor
     - status-bedrock
