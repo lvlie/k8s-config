@@ -36,3 +36,6 @@ volumes:
   - name: plex-data
     mount: /data
     source: /data
+  - name: plex-transcode
+    mount: /transcode
+    source: emptyDir
