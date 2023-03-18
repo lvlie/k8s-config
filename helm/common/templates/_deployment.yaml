@@ -66,7 +66,11 @@ spec:
       volumes:
         {{- range $volume := .Values.volumes }}
         - name: {{ $volume.name }}
+        {{- if eq $volume.source "Emptydir" }}
+          emptyDir: {}
+        {{- else }}
           persistentVolumeClaim:
             claimName: {{ $volume.name }}
+        {{- end }}
         {{- end }}
 {{- end -}}

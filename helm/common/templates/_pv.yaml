@@ -1,5 +1,9 @@
+# Define pv
 {{- define "common.pv" -}}
+# Loop over volumes
 {{- range $volume := .Values.volumes }}
+# But not when volume is emptyDir
+{{ if ne $volume.source "emptyDir" }}
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -22,5 +26,6 @@ spec:
     path: {{ $volume.source }}
   mountOptions:
     - nfsvers=4.2
+{{- end -}}
 {{- end -}}
 {{- end -}}
