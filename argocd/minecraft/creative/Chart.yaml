@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: latest
+appVersion: master
 description: Helm chart for Minecraft Creative
 name: minecraft-creative
 type: application
