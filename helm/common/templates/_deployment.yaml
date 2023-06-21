@@ -66,11 +66,15 @@ spec:
       volumes:
         {{- range $volume := .Values.volumes }}
         - name: {{ $volume.name }}
-        {{- if eq $volume.source "emptyDir" }}
+        {{- if eq $volume.type "emptyDir" }}
           emptyDir: {}
-        {{- else }}
+        {{- else if $volume.type "nfs" }}
           persistentVolumeClaim:
             claimName: {{ $volume.name }}
+        {{- else if $volume.type "hostPath" }}
+          hostPath:
+            path: {{ $volume.source }}
+            type: DirectoryOrCreate
         {{- end }}
         {{- end }}
 {{- end -}}
