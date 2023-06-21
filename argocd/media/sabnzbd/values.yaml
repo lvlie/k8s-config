@@ -27,7 +27,7 @@ volumes:
     mount: /data
     source: /data
   - name: sabnzbd-incomplete
-    type: hostPath
+    type: emptyDir
     mount: /incomplete-downloads
     source: emptyDir
   - name: sabnzbd-complete
