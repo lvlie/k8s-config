@@ -41,3 +41,4 @@ volumes:
   - name: plex-transcode
     type: emptyDir
     mount: /transcode
+    source: emptyDir
