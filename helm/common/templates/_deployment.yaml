@@ -68,10 +68,10 @@ spec:
         - name: {{ $volume.name }}
         {{- if eq $volume.type "emptyDir" }}
           emptyDir: {}
-        {{- else if $volume.type "nfs" }}
+        {{- else if eq $volume.type "nfs" }}
           persistentVolumeClaim:
             claimName: {{ $volume.name }}
-        {{- else if $volume.type "hostPath" }}
+        {{- else if eq $volume.type "hostPath" }}
           hostPath:
             path: {{ $volume.source }}
             type: DirectoryOrCreate
