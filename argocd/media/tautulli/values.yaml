@@ -17,10 +17,10 @@ container:
 
 volumes:
   - name: tautulli-config
-    type: nfs
+    type: hostPath
     mount: /config
     source: /config/plexpy
   - name: plex-logs
-    type: nfs
+    type: hostPath
     mount: /logs
     source: /config/plex/Library/Logs/

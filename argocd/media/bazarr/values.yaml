@@ -19,14 +19,14 @@ container:
 
 volumes:
   - name: bazarr-config
-    type: nfs
+    type: hostPath
     mount: /config
     source: /config/bazarr
   - name: bazarr-tv
-    type: nfs
+    type: hostPath
     mount: /tv
     source: /data/TV
   - name: bazarr-movies
-    type: nfs
+    type: hostPath
     mount: /movies
     source: /data/Movies

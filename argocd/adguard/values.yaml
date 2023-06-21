@@ -21,10 +21,10 @@ container:
 
 volumes:
   - name: adguard-vol-config
-    type: nfs
+    type: hostPath
     mount: /opt/adguardhome/conf
     source: /config/adguard/conf
   - name: adguard-vol-work
-    type: nfs
+    type: hostPath
     mount: /opt/adguardhome/work
     source: /config/adguard/work

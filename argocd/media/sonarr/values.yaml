@@ -19,14 +19,14 @@ container:
 
 volumes:
   - name: sonarr-config
-    type: nfs
+    type: hostPath
     mount: /config
     source: /config/sonarr
   - name: sonarr-data
-    type: nfs
+    type: hostPath
     mount: /tv
     source: /data/TV
   - name: sonarr-complete
-    type: nfs
+    type: hostPath
     mount: /downloads
     source: /scratch/complete

@@ -1,8 +1,4 @@
 ---
-{{- include "common.pv" . }}
----
-{{- include "common.pvc" . }}
----
 {{- include "common.deployment" . }}
 ---
 {{- include "common.service" . }}
