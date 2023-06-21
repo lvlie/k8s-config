@@ -19,11 +19,14 @@ container:
 
 volumes:
   - name: radarr-config
+    type: nfs
     mount: /config
     source: /config/radarr
   - name: radarr-data
+    type: nfs
     mount: /movies
     source: /data/Movies
   - name: radarr-complete
+    type: nfs
     mount: /downloads
     source: /scratch/complete

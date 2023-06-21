@@ -19,11 +19,14 @@ container:
 
 volumes:
   - name: bazarr-config
+    type: nfs
     mount: /config
     source: /config/bazarr
   - name: bazarr-tv
+    type: nfs
     mount: /tv
     source: /data/TV
   - name: bazarr-movies
+    type: nfs
     mount: /movies
     source: /data/Movies

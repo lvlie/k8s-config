@@ -19,14 +19,18 @@ container:
 
 volumes:
   - name: sabnzbd-config
+    type: nfs
     mount: /config
     source: /config/sabnzbd
   - name: sabnzbd-data
+    type: nfs
     mount: /data
     source: /data
   - name: sabnzbd-incomplete
+    type: nfs
     mount: /incomplete-downloads
     source: emptyDir
   - name: sabnzbd-complete
+    type: nfs
     mount: /downloads
     source: /scratch/complete

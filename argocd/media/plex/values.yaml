@@ -31,11 +31,13 @@ container:
 
 volumes:
   - name: plex-config
+    type: nfs
     mount: /config
     source: /config/plex
   - name: plex-data
+    type: nfs
     mount: /data
     source: /data
   - name: plex-transcode
+    type: emptyDir
     mount: /transcode
-    source: emptyDir
