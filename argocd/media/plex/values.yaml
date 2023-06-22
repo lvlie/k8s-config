@@ -24,6 +24,10 @@ container:
       value: "Europe/Amsterdam"
     - name: CHANGE_CONFIG_DIR_OWNERSHIP
       value: "false"
+    - name: PLEX_UID
+      value: 911
+    - name: PLEX_GID
+      value: 911
   readinessPort: 32400
   resourceRequest:
     cpu: "500m"
