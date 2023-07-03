@@ -14,7 +14,7 @@ container:
       value: "0027"
   readinessPort: 8080
   resourceRequest:
-    cpu: "250m"
+    cpu: "1000m"
     memory: "512Mi"
 
 volumes:
