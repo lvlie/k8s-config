@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: 1.32.6.7468-07e0d4a7e
+appVersion: 1.32.8.7639-fb6452ebf
 description: Helm chart for Plex
 name: plex
 type: application
