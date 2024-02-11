@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: cloudflared
-          image: cloudflare/cloudflared:latest
+          image: cloudflare/cloudflared:2024.2.0
           args:
             - tunnel
             - run
