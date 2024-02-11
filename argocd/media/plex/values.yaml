@@ -31,7 +31,7 @@ container:
   readinessPort: 32400
   resourceRequest:
     cpu: "500m"
-    memory: "1024Mi"
+    memory: "2Gi"
 
 volumes:
   - name: plex-config

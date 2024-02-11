@@ -15,7 +15,7 @@ container:
   readinessPort: 8080
   resourceRequest:
     cpu: "1000m"
-    memory: "1Gi"
+    memory: "2Gi"
 
 volumes:
   - name: sabnzbd-config

@@ -13,7 +13,7 @@ container:
   readinessPort: 8181
   resourceRequest:
     cpu: "100m"
-    memory: "256Mi"
+    memory: "512Mi"
 
 volumes:
   - name: tautulli-config
